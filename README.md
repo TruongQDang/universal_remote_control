@@ -1,4 +1,4 @@
 # AVR Library
 Library for:
-- Peripheral configurations
+- Peripheral configuration
 - Device interfacing
