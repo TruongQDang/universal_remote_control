@@ -1,21 +1,21 @@
-#ifndef _GPIO_H_
-#define _GPIO_H_
+#ifndef _MY_GPIO_H_
+#define _MY_GPIO_H_
 
 #include <stdint.h>
 #include "gpio_struct.h"
 #include "helper.h"
 
-enum GPIO_DIRECTION_CONFIG {
+enum gpio_direction_config {
         GPIO_INPUT,
         GPIO_OUTPUT,
 };
 
-enum GPIO_OUTPUT_CONFIG {
+enum gpio_ouput_config {
         GPIO_LOW,
         GPIO_HIGH,
 };
 
-enum GPIO_INPUT_CONFIG {
+enum gpio_input_config {
         GPIO_PULLUP_DISABLED,
         GPIO_PULLUP_ENABLED,
 };
@@ -23,6 +23,28 @@ enum GPIO_INPUT_CONFIG {
 void gpio_write(uint8_t port, uint8_t pin, uint8_t value);
 void gpio_toggle(uint8_t port, uint8_t pin);
 uint8_t gpio_read(uint8_t port, uint8_t pin);
+
+static inline uint8_t gpio_read_inline(uint8_t port, uint8_t pin)
+{
+        switch (port) {
+        case 'B':
+                if (helper_check_bit(&gpio_portb->input, pin)) 
+                        return 1;
+                else 
+                        return 0;
+        case 'C':
+                if (helper_check_bit(&gpio_portc->input, pin)) 
+                        return 1;
+                else 
+                        return 0;
+        case 'D':
+                if (helper_check_bit(&gpio_portd->input, pin))
+                        return 1;
+                else 
+                        return 0;
+        }
+        return -1;
+}
 
 static inline void gpio_set_direction(uint8_t port, uint8_t pin, uint8_t direction)
 {

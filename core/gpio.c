@@ -44,11 +44,20 @@ uint8_t gpio_read(uint8_t port, uint8_t pin)
 {
         switch (port) {
         case 'B':
-                return helper_check_bit(&gpio_portb->input, pin);
+                if (helper_check_bit(&gpio_portb->input, pin)) 
+                        return 1;
+                else 
+                        return 0;
         case 'C':
-                return helper_check_bit(&gpio_portc->input, pin);
+                if (helper_check_bit(&gpio_portc->input, pin)) 
+                        return 1;
+                else 
+                        return 0;
         case 'D':
-                return helper_check_bit(&gpio_portd->input, pin);
+                if (helper_check_bit(&gpio_portd->input, pin))
+                        return 1;
+                else 
+                        return 0;
         }
         return -1;
 }

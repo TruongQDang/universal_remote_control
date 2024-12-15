@@ -1,13 +1,15 @@
 TARGET := myProject
 MCU := atmega328p
 F_CPU := 16000000UL
+# 57600 for nano, 115200 for uno
 BAUD := 57600
 
 SOURCE_DIR := src core lib
 BUILD_DIR := build
-INCLUDE_DIR := lib/include core/include hardware
+INCLUDE_DIR := lib/include core/include hardware tests
 
 PROGRAMMER_TYPE := arduino
+# /dev/ttyACM0 or /dev/ttyUSB0
 PROGRAMMER_PORT := /dev/ttyUSB0
 PROGRAMMER_ARGS := -p $(MCU) -c $(PROGRAMMER_TYPE) -P $(PROGRAMMER_PORT) -b $(BAUD)
 
