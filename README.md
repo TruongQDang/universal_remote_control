@@ -1,4 +1,2 @@
-# AVR Library
-Library for:
-- Peripheral configuration
-- Device interfacing
+# Universal Remote Control
+A device to integrate buttons of different remote control. Made using AVR microcontroller.
