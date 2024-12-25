@@ -25,8 +25,11 @@ volatile uint8_t need_post_processing = 0;
 int main()
 {
         // switch state pin, D4
-        gpio_set_direction('D',4,GPIO_INPUT);
-        gpio_write('D',4,GPIO_PULLUP_ENABLED);
+        DDRD &= ~(1 << 4);
+        PORTD |= (1 << 4);
+        
+        //gpio_set_direction('D',4,GPIO_INPUT);
+        //gpio_write('D',4,GPIO_PULLUP_ENABLED);
         gpio_enable_pin_change_interrupt(PCINT_16_23,PCINT20);
 
         // ir led, D6 
