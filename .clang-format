@@ -1,0 +1,14 @@
+BasedOnStyle: GNU
+IndentWidth: 8
+TabWidth: 8
+UseTab: ForIndentation
+SpaceBeforeParens: ControlStatements
+BreakBeforeBraces: Linux
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+ColumnLimit: 100
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+BinPackParameters: false
+BinPackArguments: false
+AlignAfterOpenBracket: Align
