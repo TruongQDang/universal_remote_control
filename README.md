@@ -24,4 +24,6 @@ make all
 make flash
 ```
 
+## Result
+![Universal Remote Control](docs/universal_remote_control.jpg)
 
