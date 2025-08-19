@@ -6,7 +6,9 @@ A universal remote control based on the AVR ATmega328P, capable of recording and
 - `src/` - Application logic implementing signal capture, processing, and playback.
 
 ## Signal Capture & Playback
-IR signals are recorded using the Timer’s Input Capture mode, measuring the duration of each pulse and storing the sequence in an array. Playback is performed via PWM mode, reproducing the recorded pulse lengths. For persistence after power-off, captured data is stored in EEPROM.
+- IR signal capture are carried out using Timer1's Input Capture. Alternating between Rising and Falling edge setting for Input Capture interrupt, I can accurately measure the pulse widths of signal and store them in an array. Overflow interrupt of Timer1 indicated that the signal capture has been completed.
+- For persistent storage, the array in then stored in EEPROM.
+- Signal playback is carried out using Timer1 and Timer0. Timer1's Compare Match mode is used to match the pulse widths stored in array. Timer0's Fast PWM mode is used for signal modulation (at 38kHZ) during the duration as dictated by Timer1.
 
 ## Build & Flash
 **Toolchain installation (Ubuntu):**
